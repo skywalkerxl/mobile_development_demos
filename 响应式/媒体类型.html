@@ -21,6 +21,12 @@
         /* 仅仅在彩屏设备下识别 */
     }
 
+    /* 当屏幕宽度大于等于500px的时候识别 */
+    @media all and (min-width : 500px ){
+        #box {
+            background: green;
+        }
+    }
 </style>
 </head>
 <body>
@@ -37,7 +43,12 @@
 
     @media only 设备类型
         只有在特定的某种设备上识别
+
+    and
+    连接媒体类型和媒体特性
 -->
-    <div id="box"></div>
+    <div id="box">
+
+    </div>
 </body>
 </html>
