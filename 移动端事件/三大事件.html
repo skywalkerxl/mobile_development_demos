@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta content="width=device-width,user-scalable=no">
+<style>
+    #div1{
+        width: 200px;
+        height: 200px;
+        background: red;
+    }
+
+</style>
+</head>
+<body>
+<div id="div1"></div>
+<script>
+    /*
+    *   移动端的三大事件
+    *       手指按下：
+    *           ontouchstart
+    *       手指移动
+    *
+    *       手指抬起
+    *   注意：
+    *       在移动端开发的时候，一般不用on的方式绑定
+    *   pc端的事件比移动端的页面事件略慢，大概在300ms左右
+    * */
+    var div1 = document.getElementById('div1');
+
+    div1.addEventListener('touchstart', start);
+    div1.addEventListener('touchmove',move);
+    div1.addEventListener('touchend', end);
+    function start(){
+        console.log('按下');
+    }
+    function move(){
+        console.log('移动');
+    }
+    function  end() {
+        console.log('抬起');
+    }
+</script>
+</body>
+</html>
