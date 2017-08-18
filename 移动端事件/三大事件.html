@@ -21,13 +21,37 @@
     *       手指按下：
     *           ontouchstart
     *       手指移动
-    *
+    *           ontouchmove
     *       手指抬起
+    *           ontouchend
+    *
+    *
     *   注意：
     *       在移动端开发的时候，一般不用on的方式绑定
+    *
+    *
     *   pc端的事件比移动端的页面事件略慢，大概在300ms左右
+    *
+    *
+    *   移动端的"点透"：
+    *       当上层元素发生点击的时候，下层元素也有点击（焦点）特性，在300ms之后，如果上层元素消失或者隐藏，
+    *       目标点就会“漂移”到下层元素身上，就会触发点击事件
+    *
+    *    解决：
+    *       1.下层不要使用有点击（焦点）特性的元素.
+    *
+    *       2.阻止pc事件。
+    *
+    *       1。IOS10下设置meta禁止用户缩放是不可行的（使用阻止PC事件就可以在IOS下禁止用户缩放）
+    *
+    *       2.
+    *
+    *
     * */
+    document.addEventListener('touchend', end)
+
     var div1 = document.getElementById('div1');
+    var p = document.getElementById('p');
 
     div1.addEventListener('touchstart', start);
     div1.addEventListener('touchmove',move);

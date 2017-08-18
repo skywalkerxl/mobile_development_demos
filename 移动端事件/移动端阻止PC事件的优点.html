@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no"/>
+    <title>移动端阻止PC事件的优点</title>
+<style>
+    body, html{
+        width: 100%;
+        overflow: hidden;
+    }
+
+    #div1{
+        width: 200px;
+        height: 200px;
+        background: red;
+        position: absolute;
+        top:0;
+        left:0;
+        opacity: .5;
+    }
+    #div2{
+        width: 3000px;
+        height: 50px;
+        background: yellow;
+    }
+</style>
+</head>
+<body>
+    <a href="www.google.com" id="a">点击测试</a>
+    <div id="div1"></div>
+    <div id="div2"></div>
+<script>
+    /*
+    * 
+    *
+    *   1.IOS10下设置meta禁止用户缩放是不可行的。（使用阻止PC事件就可以在IOS10下禁止用户缩放）
+    *
+    *   2.解决IOS10下溢出隐藏的问题
+    *
+    *   3.禁止系统默认的滚动条
+    *
+    * */
+    
+    document.addEventListener('touchstart', function (ev) {
+        ev.preventDefault();
+    });
+
+    var div = document.getElementById('div1');
+    var a = document.getElementById('a');
+
+    //div.addEventListener('touchend', end);
+
+    a.addEventListener('touchstart', function () {
+        window.location.href = "www.google.com";
+    })
+</script>
+</body>
+</html>
